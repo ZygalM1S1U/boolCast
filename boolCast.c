@@ -1,7 +1,10 @@
-#include <stdio.h>
 #include "boolcast.h"
 
-int main()
+//Struct of alias BOOL(x);
+///@note this struct allows for represenation of type casting.
+
+static void instance(void)
 {
-///placeholder
+    Bool x = {1001001};
 }
+
