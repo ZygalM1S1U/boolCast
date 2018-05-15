@@ -18,12 +18,12 @@
 ///@brief typedef declarations
 ///@param Bool - a parameter to pass an unsigned 8-bit integer for a flag mask.
 ///@note 'Bool' is used as a typical defined function here, but then replaced in memory with a bit mask as a rudimentary form of compression
-typedef uint8_t Bool;
+//typedef uint8_t Bool;
 typedef uint8_t bool;
 
 /*function prototypes*/
 ///Placeholder
-static void instance(void);
+//static void instance(void);
 
 
 #endif // BOOLCAST_H_
