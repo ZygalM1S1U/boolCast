@@ -22,7 +22,7 @@ To use this in your N64 source:
 Create an instance of "bool" in your program.
 ```c
 
-union bool flags32;
+bool flags32;
 ```
 There are 3 types that the bool can take on, an 8-bit type, 16-bit type, 32-bit type, and a 64-bit type
 Only **ONE** type can be used per instance at a time, so one instance can be either 8, 16, 32, or 64 bit; however,
@@ -44,7 +44,7 @@ For example, you cannot set the 9th bit in an 8-bit data type.  Be cognizant of 
 with the flags as this will result in nothing other than potential stack corruption
 ```c
 // DO !!NOT!! do this!!
-union bool flags8;
+bool flags8;
 BC_SET_FLAG(flags8.flags8_t, 9);
 ```
 

@@ -25,18 +25,25 @@ int main(void);
 void setFlags(uint8_t shift);
 
 /**
+ * @brief resetFlags
+ * @param shift
+ */
+void resetFlags(uint8_t shift);
+
+/**
  * @brief printFlags
  */
 void printFlags(void);
 
-union bool flags8;
-union bool flags16;
-union bool flags32;
-union bool flags64;
-int shift = 1;
+bool flags8;
+bool flags16;
+bool flags32;
+bool flags64;
+int shift = 0;
 
 int main(void)
 {
+
     flags8.flags8_t = 0u;
     flags16.flags16_t = 0u;
     flags32.flags32_t = 0u;
@@ -45,9 +52,18 @@ int main(void)
     // Print before
     printFlags();
 
+    // Set all
     for(shift; shift < 64; ++shift)
     {
         setFlags(shift);
+        printFlags();
+        printf("Index : %d\n", shift);
+    }
+
+    // Toggle all
+    for(shift; shift != 0; --shift)
+    {
+        resetFlags(shift);
         printFlags();
         printf("Index : %d\n", shift);
     }
@@ -59,10 +75,10 @@ int main(void)
 
 void printBinary(uint8_t* bin, TYPE dataType)
 {
-    uint8_t n8 = 0;
-    uint16_t n16 = 0;
-    uint32_t n32 = 0;
-    uint64_t n64 = 0;
+    uint8_t n8 = 0u;
+    uint16_t n16 = 0u;
+    uint32_t n32 = 0u;
+    int64_t n64 = 0u;
 
     switch(dataType)
     {
@@ -72,7 +88,7 @@ void printBinary(uint8_t* bin, TYPE dataType)
         printf("Hex Value 0x%02X ", n8);
         printf("\n");
         printf("Binary Value: ");
-        for (uint32_t i = 1 << 7; i > 0; i = i / 2)
+        for (uint8_t i = 1 << 7; i > 0; i = i / 2)
             (n8 & i)? printf("1"): printf("0");
         break;
     case SIXTEEN_BIT:
@@ -81,7 +97,7 @@ void printBinary(uint8_t* bin, TYPE dataType)
         printf("Hex Value 0x%04X ", n16);
         printf("\n");
         printf("Binary Value: ");
-        for (uint32_t i = 1 << 15; i > 0; i = i / 2)
+        for (uint16_t i = 1 << 15; i > 0; i = i / 2)
             (n16 & i)? printf("1"): printf("0");
         break;
     case THIRTY_TWO_BIT:
@@ -99,7 +115,7 @@ void printBinary(uint8_t* bin, TYPE dataType)
         printf("Hex Value 0x%016X ", n64);
         printf("\n");
         printf("Binary Value: ");
-        for (uint64_t i = 1 << 63; i > 0; i = i / 2)
+        for (uint64_t i = 1 << 63; i > 0; i = i / 2) // Some architectures do a u64 as two u32s aligned in memory, this will overflow the register if so.  but it works :)
             (n64 & i)? printf("1"): printf("0");
         break;
     default:
@@ -135,4 +151,14 @@ void setFlags(uint8_t shift)
     BC_SET_FLAG(flags16.flags16_t, shift);
     BC_SET_FLAG(flags32.flags32_t, shift);
     BC_SET_FLAG(flags64.flags64_t, shift);
+}
+
+
+void resetFlags(uint8_t shift)
+{
+    // Change Bits
+    BC_CLEAR_FLAG(flags8.flags8_t, shift);
+    BC_CLEAR_FLAG(flags16.flags16_t, shift);
+    BC_CLEAR_FLAG(flags32.flags32_t, shift);
+    BC_CLEAR_FLAG(flags64.flags64_t, shift);
 }

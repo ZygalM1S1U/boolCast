@@ -20,7 +20,7 @@
  *  @param FLAG - This is the entire flag data to have one bit set
  *  @param POS -  This is the bit to set in the entire data structure
  */
-#define BC_SET_FLAG(FLAG, POS) (FLAG |=  (1<<POS))
+#define BC_SET_FLAG(FLAG, POS) (FLAG |= (1<<POS))
 
 /**
  *  @macro BC_CLEAR_FLAG
@@ -33,13 +33,13 @@
 ///@brief typedef declarations
 ///@param Bool - a parameter to pass an unsigned 8-bit integer for a flag mask.
 ///@note 'Bool' is used as a typical defined function here, as C99 standards are not yet defined
-union bool
+typedef union bool_t
 {
     u8  flags8_t;
     u16 flags16_t;
     u32 flags32_t;
     u64 flags64_t;
-};
+}bool;
 
 
 #endif // BOOLCAST_H_
