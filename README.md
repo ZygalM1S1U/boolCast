@@ -11,7 +11,7 @@ Make sure to have this in the include chain of your program
 ```c
 #include "boolCast.h"
 ```
-This will include the library of boolCast.  
+This will include the library of boolCast.  No building is needed to use this library.
 
 To use this in your N64 source:
 Create an instance of "bool" in your program.
@@ -52,7 +52,7 @@ Let's say we want to clear the 32nd bit in the 32 bit flag data type.
  // to     0000 0000 0000 0000 0000 0000 0000 0000
  BC_CLEAR_FLAG(flags32.flags32_t, 32);
  ```
- ## Built With
+ ## Test File Built With
 
 * [GCC Make](https://gcc.gnu.org/onlinedocs/gccint/Makefile.html) - build tool
 
