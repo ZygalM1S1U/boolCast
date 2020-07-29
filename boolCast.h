@@ -1,8 +1,6 @@
 #ifndef BOOLCAST_H_   /* Include guard */
 #define BOOLCAST_H_
 
-#include <stdint.h>
-
 #define MAX_BITS    8
 #define TRUE        1
 #define FALSE       0
