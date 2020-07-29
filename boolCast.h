@@ -8,6 +8,7 @@
 #define FALSE       0
 
 /**
+  @author James Novorita
   @section BOOL CAST
   @brief This is a tool to use multiple data types to represent flags as one-bit, rather than a byte to save memory.
          It is targeted for the Nintendo 64
@@ -34,10 +35,10 @@
 ///@note 'Bool' is used as a typical defined function here, as C99 standards are not yet defined
 union bool
 {
-    uint8_t  flags8_t;
-    uint16_t flags16_t;
-    uint32_t flags32_t;
-    uint64_t flags64_t;
+    u8  flags8_t;
+    u16 flags16_t;
+    u32 flags32_t;
+    u64 flags64_t;
 };
 
 
