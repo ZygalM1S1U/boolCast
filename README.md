@@ -5,7 +5,7 @@ These are build notes for 1.0.6
 
 This library is intended to be used with the branchless programming technique which generally plays nicer with RISC systems.
 Sometimes, pipeline hazards (structural, or data) which can potentially manifest as pipeline stalls, can occur through branch instruction sequences that the compiler cannot avoid.
-These bubbles can be avoided by using arithmetic instructions instead.  Using bits not only saves memory, but also in most cases, speeds up the logic.
+These bubbles can be avoided by using arithmetic instructions instead of branching multiple times.  Using bits not only saves memory, but also in most cases, speeds up the logic.
 
 # CAUTION
 This library is aimed to be used with the N64, on a MIPS 64 system.  The C99 Standard is not defined, so the type names will not conflict.
