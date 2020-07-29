@@ -49,6 +49,7 @@ int main(void)
     {
         setFlags(shift);
         printFlags();
+        printf("Index : %d\n", shift);
     }
 
     return 0;
@@ -59,38 +60,46 @@ int main(void)
 void printBinary(uint8_t* bin, TYPE dataType)
 {
     uint8_t n8 = 0;
-    uint8_t n16 = 0;
-    uint8_t n32 = 0;
-    uint8_t n64 = 0;
+    uint16_t n16 = 0;
+    uint32_t n32 = 0;
+    uint64_t n64 = 0;
 
     switch(dataType)
     {
     case EIGHT_BIT:
         n8 = *(uint8_t*)bin;
-        printf("Hex Value 0x%02X ", n8);
         printf("8-Bit Flags:  ");
-        for (uint32_t i = 1 << 8; i > 0; i = i / 2)
+        printf("Hex Value 0x%02X ", n8);
+        printf("\n");
+        printf("Binary Value: ");
+        for (uint32_t i = 1 << 7; i > 0; i = i / 2)
             (n8 & i)? printf("1"): printf("0");
         break;
     case SIXTEEN_BIT:
         n16 = *(uint16_t*)bin;
-        printf("Hex Value 0x%04X ", n16);
         printf("16-Bit Flags: ");
-        for (uint32_t i = 1 << 16; i > 0; i = i / 2)
+        printf("Hex Value 0x%04X ", n16);
+        printf("\n");
+        printf("Binary Value: ");
+        for (uint32_t i = 1 << 15; i > 0; i = i / 2)
             (n16 & i)? printf("1"): printf("0");
         break;
     case THIRTY_TWO_BIT:
         n32 = *(uint32_t*)bin;
-        printf("Hex Value 0x%08X ", n32);
         printf("32-Bit Flags: ");
-        for (uint32_t i = 1 << 32; i > 0; i = i / 2)
+        printf("Hex Value 0x%08X ", n32);
+        printf("\n");
+        printf("Binary Value: ");
+        for (uint32_t i = 1 << 31; i > 0; i = i / 2)
             (n32 & i)? printf("1"): printf("0");
         break;
     case SIXTY_FOUR_BIT:
         n64 = *(uint64_t*)bin;
-        printf("Hex Value 0x%016X ", n64);
         printf("64-Bit Flags: ");
-        for (uint64_t i = 1 << 64; i > 0; i = i / 2)
+        printf("Hex Value 0x%016X ", n64);
+        printf("\n");
+        printf("Binary Value: ");
+        for (uint64_t i = 1 << 63; i > 0; i = i / 2)
             (n64 & i)? printf("1"): printf("0");
         break;
     default:
@@ -112,10 +121,10 @@ void printFlags(void)
     memcpy(printBuf, &flags16.flags16_t, 2);
     printBinary(printBuf, SIXTEEN_BIT);
 
-    memcpy(printBuf, &flags16.flags32_t, 4);
+    memcpy(printBuf, &flags32.flags32_t, 4);
     printBinary(printBuf, THIRTY_TWO_BIT);
 
-    memcpy(printBuf, &flags16.flags64_t, 8);
+    memcpy(printBuf, &flags64.flags64_t, 8);
     printBinary(printBuf, SIXTY_FOUR_BIT);
 }
 
