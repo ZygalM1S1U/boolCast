@@ -1,7 +1,7 @@
 # boolCast
 Type #include "boolCast.h" to use Booleans in the N64 libray, but as bits, rather than bytes.
 The N64 is rather precious when it comes to memory and saving space and time by using bits is desired.
-These are build notes for 1.0.0
+These are build notes for 1.0.2
 
 # CAUTION
 This library is aimed to be used with the N64, on a MIPS 64 system.  The C99 Standard is not defined, so the type names will not conflict.
