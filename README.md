@@ -1,5 +1,5 @@
 # boolCast
-Type #include "boolCast.h" to use Booleans in the N64 libray, but as bits, rather than bytes.
+Type #include "boolCast.h" to use Booleans in the N64 library, but as bits, rather than bytes.
 The N64 is rather precious when it comes to memory and saving space and time by using bits is desired.
 These are build notes for 1.0.4
 
