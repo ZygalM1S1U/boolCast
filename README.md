@@ -30,7 +30,8 @@ make sure to only use one at a time.  Declare another instance if more are neede
 ```c
 flags32.flags32_t = 0u;
 ```
-To set a bit, use the ```c BC_SET_FLAG(FLAG, POS)``` macro.
+To set a bit, use the ```c 
+BC_SET_FLAG(FLAG, POS)``` macro.
 The first argument is the bool definition, second is the position of the bit to set
 Let's say we want to set the 32nd bit in the 32 bit flag data type.
 ```c
@@ -48,7 +49,8 @@ bool flags8;
 BC_SET_FLAG(flags8.flags8_t, 9);
 ```
 
-The same rules apply to clearing a flag.  To clear a flag, use the ```c BC_CLEAR_FLAG(FLAG, POS)``` macro.
+The same rules apply to clearing a flag.  To clear a flag, use the ```c 
+BC_CLEAR_FLAG(FLAG, POS)``` macro.
 The first parameter is the flag type and the second is the position of the bit to clear.
 Let's say we want to clear the 32nd bit in the 32 bit flag data type.
 ```c
